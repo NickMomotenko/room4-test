@@ -47,12 +47,14 @@ const ItemIcon = styled.img.attrs((props) => ({
 const Item = (props) => {
   console.log(props);
   return (
-    <ItemWrapp onClick={() => props.onClick(props.artist.name)}>
+    <ItemWrapp>
       <ItemIcon
         url={Object.values(props.image?.find((img) => img.size === "small"))[0]}
       />
       <ItemText>{props.name}</ItemText>
-      <ItemArtistName>{props.artist.name}</ItemArtistName>
+      <ItemArtistName onClick={() => props.onClick(props.artist.name)}>
+        {props.artist.name}
+      </ItemArtistName>
       <ItemLink href={props.url}>Link</ItemLink>
     </ItemWrapp>
   );

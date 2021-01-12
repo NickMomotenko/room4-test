@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-} from "react-router-dom";
-
 import "./App.css";
 
 import Container from "./Container";
@@ -58,14 +50,12 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <Container>
-        <Menu setPath={setPath} />
-        {path == "/" && <Main topTracks={topTracks} getInfo={getInfo} />}
-        {path == "/search" && <TrackSearch />}
-        {path == "/singer" && <SingerPage artist={artist && artist} />}
-      </Container>
-    </Router>
+    <Container>
+      <Menu setPath={setPath} />
+      {path == "/" && <Main topTracks={topTracks} getInfo={getInfo} />}
+      {path == "/search" && <TrackSearch />}
+      {path == "/singer" && <SingerPage artist={artist && artist} />}
+    </Container>
   );
 };
 
